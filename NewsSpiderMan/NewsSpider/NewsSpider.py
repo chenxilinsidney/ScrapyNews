@@ -23,16 +23,16 @@ class NewsSpider(CrawlSpider):
             extract()
         item['editor'] =\
             response.xpath('//span[@class="ep-editor"]/text()').\
-             extract()
+            extract()
         item['time'] =\
             response.xpath('//div[@class="post_time_source"]/text()').\
-             extract()
+            extract()
         item['content'] =\
             response.xpath('//div[@class="post_text"]/p/text()').\
             extract()
         for key in item:
             for data in item[key]:
-                log.msg("item %s value %s" % (key, data))
+                log.msg("item %s value %s" % (key, data), level=log.DEBUG)
         return item
 
     rules = [

@@ -9,15 +9,19 @@ import scrapy
 
 
 class DmozItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
+    """
+    define the fields for your item here like.
+    for crawl dmoz items
+    """
     title = scrapy.Field()
     link = scrapy.Field()
     desc = scrapy.Field()
-    pass
 
 class NewsItem(scrapy.Item):
-    # define the fields for news
+    """
+    define the fields for news
+    for crawl news items
+    """
     url = scrapy.Field()
     source = scrapy.Field()
     title = scrapy.Field()
