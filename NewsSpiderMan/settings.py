@@ -90,5 +90,5 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 # FILE NAME AND PATH TO WRITE ITEMS
-ITEM_FILE_PATH='/Users/chenxilin01/Coder/python/scrapy/ScrapyNews'
+ITEM_FILE_PATH='/Users/chenxilin01/Coder/python/ScrapyNews'
 ITEM_FILE_NAME='news.txt'
