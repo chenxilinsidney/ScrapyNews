@@ -91,8 +91,8 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 # FILE NAME AND PATH TO WRITE ITEMS
-ITEM_FILE_PATH='/Users/chenxilin01/Coder/python/ScrapyNews'
-ITEM_FILE_NAME='news.txt'
+ITEM_FILE_PATH='./'
+ITEM_FILE_NAME='news.data'
 
 # MYSQL DATABASE INFO
 MYSQL_IP='127.0.0.1';
@@ -100,3 +100,12 @@ MYSQL_PORT='3306';
 MYSQL_NAME='spider'
 MYSQL_PASSWORD='spider'
 MYSQL_DATABASE='news_data';
+
+# LOG INFO
+LOG_ENABLED=True
+LOG_ENCODING='utf-8'
+LOG_FILE='./spider.log'
+LOG_FORMAT='%(asctime)s [%(name)s] %(levelname)s: %(message)s'
+LOG_DATEFORMAT='%Y-%m-%d %H:%M:%S'
+LOG_LEVEL='DEBUG'
+LOG_STDOUT=False
