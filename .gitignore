@@ -1,5 +1,6 @@
 # test data
-news.txt
+news.data
+nohup.out
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
