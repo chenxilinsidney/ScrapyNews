@@ -7,13 +7,13 @@ from scrapy.linkextractors import LinkExtractor
 
 
 class NewsSpider(CrawlSpider):
-    name = "news163spider"
+    name = "newsspider"
     allowed_domains = ["tech.163.com"]
     start_urls = ["http://tech.163.com"]
 
     rules = [
-        Rule(LinkExtractor(allow='tech.163.com/16/082[0-9]/.*\.html'),
-             follow=False, callback='parse_item')
+        Rule(LinkExtractor(allow='tech.163.com/16/.*\.html'),
+             follow=True, callback='parse_item')
     ]
 
     def parse_item(self, response):

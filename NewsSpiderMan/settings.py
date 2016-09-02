@@ -66,6 +66,7 @@ ROBOTSTXT_OBEY = True
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'NewsSpiderMan.pipelines.News2FileFor163Pipeline': 300,
+    'NewsSpiderMan.pipelines.News2MySQLPipeline': 500,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -92,3 +93,10 @@ ITEM_PIPELINES = {
 # FILE NAME AND PATH TO WRITE ITEMS
 ITEM_FILE_PATH='/Users/chenxilin01/Coder/python/ScrapyNews'
 ITEM_FILE_NAME='news.txt'
+
+# MYSQL DATABASE INFO
+MYSQL_IP='127.0.0.1';
+MYSQL_PORT='3306';
+MYSQL_NAME='spider'
+MYSQL_PASSWORD='spider'
+MYSQL_DATABASE='news_data';
