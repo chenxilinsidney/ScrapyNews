@@ -107,20 +107,32 @@ class News2MySQLPipeline(object):
         example: check if item is exist and drop.
         """
         spider.logger.debug("parsing item before write mysql")
-        for element in ("url", "source", "title", "editor", "time", "content"):
-            if item[element] is None:
-                raise DropItem("invalid items url: %s" % str(item["url"]))
+        if item["url"] is None:
+            raise DropItem("invalid items url: %s" % str(item["url"]))
         url = item["url"][0].strip().encode('UTF-8')
-        source = item["source"][0].strip().encode('UTF-8')
-        title = item["title"][0].strip().encode('UTF-8')
-        editor = item["editor"][0].strip().encode('UTF-8').split('：')[1]
-        time_string = item["time"][0].strip().split()
-        datetime = time_string[0] + ' ' + time_string[1]
-        time = datetime.encode('UTF-8')
-        content = ""
-        for para in item["content"]:
-            content += para.strip().replace('\n', '').replace('\t', '')
-        content = content.encode('UTF-8')
+        try:
+            source = item["source"][0].strip().encode('UTF-8')
+        except:
+            source = ""
+        try:
+            title = item["title"][0].strip().encode('UTF-8')
+        except:
+            title = ""
+        try:
+            editor = item["editor"][0].strip().encode('UTF-8')
+        except:
+            editor = ""
+        try:
+            time = item["time"][0].encode('UTF-8')
+        except:
+            time = ""
+        try:
+            content = ""
+            for para in item["content"]:
+                content += para.strip().replace('\n', '').replace('\t', '')
+            content = content.encode('UTF-8')
+        except:
+            content = ""
         cursor = self.db.cursor()
         spider.logger.debug("trying to write mysql")
         sql = "INSERT INTO %s (URL, SOURCE, TITLE, EDITOR,\

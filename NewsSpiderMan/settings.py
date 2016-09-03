@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'NewsSpiderMan.pipelines.News2FileFor163Pipeline': 300,
+#    'NewsSpiderMan.pipelines.News2FileFor163Pipeline': 300,
     'NewsSpiderMan.pipelines.News2MySQLPipeline': 500,
 }
 
@@ -92,7 +92,7 @@ ITEM_PIPELINES = {
 
 # FILE NAME AND PATH TO WRITE ITEMS
 ITEM_FILE_PATH='./'
-ITEM_FILE_NAME='news.data'
+ITEM_FILE_NAME='output/news.data'
 
 # MYSQL DATABASE INFO
 MYSQL_IP='127.0.0.1';
@@ -104,8 +104,17 @@ MYSQL_DATABASE='news_data';
 # LOG INFO
 LOG_ENABLED=True
 LOG_ENCODING='utf-8'
-LOG_FILE='./spider.log'
+LOG_FILE='./log/spider.log'
 LOG_FORMAT='%(asctime)s [%(name)s] %(levelname)s: %(message)s'
 LOG_DATEFORMAT='%Y-%m-%d %H:%M:%S'
 LOG_LEVEL='DEBUG'
 LOG_STDOUT=False
+
+# URL SOURCE
+NEWS_SOURCE = {"tech": {"http://tech.163.com": [1, "网易新闻"],
+                        "http://tech.qq.com": [2, "腾讯新闻"],
+                        "http://tech.sina.com.cn": [3, "新浪新闻"],
+                        "http://tech.ifeng.com": [4, "凤凰新闻"],
+                        "http://it.sohu.com": [5, "搜狐新闻"]
+                        }
+               }
